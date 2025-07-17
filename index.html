@@ -150,6 +150,7 @@
         /* Main content */
         main {
             margin-top: 80px;
+            padding-top: 20px;
         }
 
         .page {
@@ -1022,6 +1023,16 @@
 
         /* Enhanced Responsive design */
         @media (max-width: 768px) {
+            main {
+                margin-top: 90px;
+                padding-top: 30px;
+            }
+
+            .nav-container {
+                padding: 0.75rem 0;
+                min-height: 70px;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1695,7 +1706,13 @@
             const navLinksContainer = document.getElementById('navLinks');
             navLinksContainer.classList.remove('active');
             
-            // Scroll to top
+            // Update menu toggle icon
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.innerHTML = '☰';
+            menuToggle.setAttribute('aria-expanded', 'false');
+            
+            // Scroll to top with navbar offset
+            const navbarHeight = document.getElementById('navbar').offsetHeight;
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
