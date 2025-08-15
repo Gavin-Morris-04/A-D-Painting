@@ -69,18 +69,33 @@
         }
 
         .logo {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: flex;
+            align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.05);
+        }
+
+        .logo img {
+            height: clamp(40px, 8vw, 60px);
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 0.5rem;
+            display: none; /* Hidden by default, can be shown if needed */
         }
 
         .nav-links {
@@ -170,7 +185,11 @@
 
         /* Enhanced Hero section */
         .hero {
-            background: var(--gradient-primary);
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('media/484916717_1447704806546448_219424869539348684_n.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
             min-height: 90vh;
@@ -1033,6 +1052,22 @@
                 min-height: 70px;
             }
 
+            .logo img {
+                height: clamp(35px, 7vw, 50px);
+                max-width: 150px;
+            }
+
+            .logo-text {
+                font-size: clamp(1rem, 3vw, 1.4rem);
+                margin-left: 0.3rem;
+            }
+
+            .hero {
+                background-attachment: scroll; /* Better performance on mobile */
+                min-height: 80vh;
+                padding: 3rem 0;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1060,11 +1095,6 @@
 
             .menu-toggle {
                 display: block;
-            }
-
-            .hero {
-                min-height: 80vh;
-                padding: 3rem 0;
             }
 
             .hero-buttons {
@@ -1209,7 +1239,10 @@
     <nav id="navbar">
         <div class="container">
             <div class="nav-container">
-                <a href="#" class="logo">A&D Painting LLC</a>
+                <a href="#" class="logo" onclick="showPage('home')">
+                    <img src="media/331303624_892161508743761_5881136937300208102_n.jpg" alt="A&D Painting LLC Logo" />
+                    <span class="logo-text">A&D Painting LLC</span>
+                </a>
                 <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
